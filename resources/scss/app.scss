@@ -1,0 +1,48 @@
+@import '~bootstrap/scss/bootstrap';
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+.main-wrapper{
+    height: calc(100vh - 57px);
+}
+
+main {
+    height: calc(100vh - 57px);
+    overflow: auto;
+}
+
+.aside-menu {
+    position: fixed;
+    height: 100%;
+    a {
+        color: white;
+        font-size: .9rem;
+        text-decoration: none;
+        &:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}
+
+.add-button {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.detail-img {
+    width: 100%;
+    max-width: 500px;
+}
+
+thead {
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.ck-editor__editable[role="textbox"] {
+    height: 300px;
+}
