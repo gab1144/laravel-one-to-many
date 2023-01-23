@@ -18,6 +18,19 @@
         </div>
 
         <div class="mb-3">
+            <label for="type_id" class="form-label">Tipo</label>
+            <select class="form-select" name="type_id" aria-label="Default select example">
+                <option value="">Selezionare un tipo</option>
+                @foreach ($types as $type)
+                    <option
+                    @if($type->id == old('type_id')) selected @endif
+                     value="{{$type->id}}">{{$type->name}}</option>
+                @endforeach
+            </select>
+
+        </div>
+
+        <div class="mb-3">
           <label for="client_name" class="form-label">Nome cliente</label>
           <input type="text" class="form-control @error('client_name') is-invalid @enderror" name="client_name" id="client_name" value="{{old('client_name', $project->client_name)}}">
           @error('client_name')
