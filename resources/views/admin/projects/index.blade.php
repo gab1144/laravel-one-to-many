@@ -31,7 +31,11 @@
                         <td>{{$project->client_name}}</td>
                         <td><a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                         <a class="btn btn-warning " href="{{route('admin.projects.edit', $project)}}" title="edit"><i class="fa-solid fa-pencil text-white"></i></a>
-                        @include('admin.partials.form-delete')
+                        @include('admin.partials.form-delete', [
+                            'route' => 'projects',
+                            'message' => "Confermi l'eliminazione del progetto: $project->title",
+                            'entity' => $project
+                        ])
                         </td>
                     <tr>
                 @endforeach

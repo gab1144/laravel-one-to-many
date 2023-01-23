@@ -14,7 +14,11 @@
             <div>Sommario: {!!$project->summary!!}</div>
             <a class="btn btn-primary text-white" href="{{route('admin.projects.index', $project)}}" title="edit">Torna alla lista</i></a>
             <a class="btn btn-warning text-white" href="{{route('admin.projects.edit', $project)}}" title="edit"><i class="fa-solid fa-pencil"></i></a>
-            @include('admin.partials.form-delete')
+            @include('admin.partials.form-delete', [
+                            'route' => 'projects',
+                            'message' => "Confermi l'eliminazione del progetto: $project->title",
+                            'entity' => $project
+            ])
         </div>
     </main>
 @endsection

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Type;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Controllers\Controller;
+use App\Http\Requests\TypeRequest;
 
 class TypeController extends Controller
 {
@@ -15,7 +16,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::orderBy('id', 'desc')->paginate(10);
+
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -34,9 +37,15 @@ class TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypeRequest $request)
     {
-        //
+        $val_data = $request->all();
+
+        $val_data['slug'] = Type::generateSlug($val_data['name']);
+
+        Type::create($val_data);
+
+        return redirect()->back()->with('message', "Tipo {$val_data['name']} creato correttamente");
     }
 
     /**
@@ -68,9 +77,15 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(TypeRequest $request, Type $type)
     {
-        //
+        $val_data = $request->all();
+
+        $val_data['slug'] = Type::generateSlug($val_data['name']);
+
+        $type->update($val_data);
+
+        return redirect()->back()->with('message', "Tipo {$val_data['name']} aggiornato correttamente");
     }
 
     /**
@@ -81,6 +96,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return redirect()->back()->with('message', "Tipo $type->name eliminato correttamente");
     }
 }
