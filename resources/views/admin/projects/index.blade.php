@@ -27,7 +27,7 @@
                 @foreach ($projects as $project)
                     <tr>
                         <th>{{$project->id}}</th>
-                        <td>{{$project->name}}</td>
+                        <td>{{$project->name}}  <span class="badge text-bg-info">{{$project->type?->name}}</span></td>
                         <td>{{$project->client_name}}</td>
                         <td><a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                         <a class="btn btn-warning " href="{{route('admin.projects.edit', $project)}}" title="edit"><i class="fa-solid fa-pencil text-white"></i></a>
