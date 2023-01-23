@@ -39,6 +39,10 @@ class ProjectController extends Controller
 
     }
 
+    public function project_type(){
+        return 'ciao';
+    }
+
     /**
      * Show the form for creating a new resource.
      *
