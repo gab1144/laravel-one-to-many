@@ -1,9 +1,10 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <div class="logo_laravel text-white">
-                    Boolpress
+                <div class="logo_laravel">
+                    <img src="{{ Vite::asset('resources/img/logo-black.svg') }}" alt="Logo GR" class="logo">
+
                 </div>
                 {{-- config('app.name', 'Laravel') --}}
             </a>
@@ -43,7 +44,7 @@
                     <li class="nav-item">
                         <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            <i class="fa-solid fa-right-from-bracket"></i>{{ __('Logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

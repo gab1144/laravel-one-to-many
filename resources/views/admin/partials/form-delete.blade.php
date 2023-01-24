@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal{{$entity->id}}">
-    DELETE
+    <i class="fa-solid fa-trash"></i>
 </button>
 
 <!-- Modal -->
